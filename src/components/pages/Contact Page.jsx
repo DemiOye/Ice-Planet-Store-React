@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import location from "./images/location.png";
 import phone from "./images/phone.png";
 import atemail from "./images/atemail.png";
-import contact from "./images/contact.jpg";
+//import contact from "./images/contact.jpg";
+import fish from "./images/fish.jpg";
 
 function ContactPage() {
 
@@ -31,10 +32,23 @@ function ContactPage() {
 
     }
 
+    const bannerStyle = {
+        backgroundImage: `url(${fish})`,
+        backgroundSize: "cover"
+    };
+
+    const innerBanner = {
+        textTransform: "uppercase",
+        letterSpacing: "1px", 
+        color: "white", 
+        padding: "50px",
+        background: "rgba(6, 24, 78, 0.5)"
+    };
+
     const contactStyle = {
         padding: "70px",
-        paddingLeft: "7%",
-        paddingRight: "7%"
+        paddingLeft: "5%",
+        paddingRight: "5%"
     };
 
     const inputStyle = {
@@ -44,7 +58,6 @@ function ContactPage() {
         fontSize: "16px",
         letterSpacing: "1px",
         border: "0.7px solid #d3d3d3",
-        borderRadius: "3px",
         color: "#313131"
     };
 
@@ -53,21 +66,23 @@ function ContactPage() {
         marginBottom: "30px",
         padding: "7px",
         fontSize: "16px",
+        fontFamily: "Arial, san-serrif",
         letterSpacing: "1px",
-        height: "80px",
+        height: "100px",
         border: "0.7px solid #d3d3d3",
-        borderRadius: "3px",
         color: "#313131"
     };
 
     const buttonStyle = {
-        backgroundColor: "#01abd6",
+        background: "none",
+        width: "40%",
+        minWidth: "200px",
         padding: "10px",
-        color: "white",
-        fontSize: "17px",
-        border: "none",
+        color: "rgb(1, 171, 214)",
+        border: "1px solid rgb(1, 171, 214)",
+        fontSize: "14px",
+        fontWeight: "bold",
         letterSpacing: "1px",
-        borderRadius: "3px",
         cursor: "pointer"
     };
 
@@ -77,35 +92,48 @@ function ContactPage() {
         paddingBottom: "40px",
         fontWeight: "lighter",
         letterSpacing: "1px",
-        paddingRight: "12%"
+        paddingRight: "11%"
     };
 
     const containerStyle = {
-        width: "48%",
-        paddingLeft: "1%",
-        paddingRight: "1%"
+        width: "80%",
+        minWidth: "320px"
+    };
+
+    const overHandler =(e)=> {
+        e.target.style.backgroundColor = "#01abd6";
+        e.target.style.border = "1px solid #01abd6";
+        e.target.style.color = "white";
+    };
+
+    const outHandler =(e)=> {
+        e.target.style.backgroundColor = "transparent";
+        e.target.style.border = "1px solid #01abd6";
+        e.target.style.color = "#01abd6";
     };
 
 
     return (
         <>
+        <div style={bannerStyle}>
+            <div style={innerBanner}>
+            <span style={{fontSize: "30px", fontWeight: "lighter"}}>Contact Us</span>
+            </div>
+        </div>
         <div style={contactStyle}>
-            <div style={{display: "flex", width: "100%"}}>
                 <div style={containerStyle}>
-                    <img style={{width: "100%", borderRadius: "10px"}} src={contact} alt="staff"/>
-                </div>
-                <div style={containerStyle}>
-                    <span style={{fontSize: "40px",  fontWeight: "lighter"}}>Contact Us</span>
+                    <span style={{color: "#3d3d3d", fontSize: "17px"}}>Please fill the form below to send us a message. We will respond soon as possible.</span>
+                    <br></br><br></br>
                     <form style={{display: "grid"}} onSubmit={sendMessage}>
                         <input style={inputStyle} type="text" value={fullname} onChange={changeFullname} placeholder="Name"></input>
                         <input style={inputStyle} type="text" value={email} onChange={changeEmail} placeholder="Email"></input>
                         <input style={inputStyle} type="text" value={phonenum} onChange={changePhonenum}  placeholder="Phone Number"></input>
                         <textarea style={textareaStyle} value={message} onChange={changeMessage} placeholder="Message"></textarea>
-                        <button style={buttonStyle} type="submit">Submit</button>
+                        <button onMouseOver={overHandler} onMouseOut={outHandler} style={buttonStyle} type="submit">SUBMIT</button>
                     </form>
                 </div>
-            </div>
-            <div style={{display: "inline-block", width: "100%"}}>
+            
+            <div style={{display: "inline-block", width: "100%", marginTop: "25px", marginBottom: "25px"}}>
                 <div style={icons}>
                     <div style={{display: "flex"}}>
                     <img style={{width: "60px", marginRight: "15px"}} src={location} alt="location"></img>

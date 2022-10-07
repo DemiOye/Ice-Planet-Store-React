@@ -1,60 +1,73 @@
-import { Outlet, Link } from "react-router-dom";
-import about from "./images/about.jpg";
+import { Link } from "react-router-dom";
 import a1 from "./images/a1.png";
 import a2 from "./images/a2.png";
-import a3 from "./images/a3.png"
+import a3 from "./images/a3.png";
+import fries from "./images/fries.jpg";
 
 function AboutPage() {
 
+    const bannerStyle = {
+        backgroundImage: `url(${fries})`,
+        backgroundSize: "cover",
+    };
+
+    const innerBanner = {
+        textTransform: "uppercase",
+        letterSpacing: "1px", 
+        color: "white", 
+        padding: "50px",
+        background: "rgba(6, 24, 78, 0.5)"
+    };
+
     const aboutStyle = {
         padding: "30px",
-        paddingRight: "7%",
-        paddingLeft: "7%"
-    };
-
-    const mainContainer = {
-        display: "flex",
-        alignContent: "center",
-        justifyContent: "center"
-    };
-
-    const subContainer1 = {
-        marginLeft: "16px",
-        marginRight: "16px"
+        paddingRight: "5%",
+        paddingLeft: "5%"
     };
 
     const subContainer2 = {
         marginLeft: "16px",
         marginRight: "16px",
-        marginTop: "60px"
+        marginTop: "70px",
+        marginBottom: "70px"
     };
 
     const buttonStyle = {
-        backgroundColor: "#01abd6",
-        width: "100%",
+        backgroundColor: "transparent",
+        border: "1px solid #01abd6",
+        fontWeight: "bold",
+        width: "50%",
+        minWidth: "250px",
         paddingTop: "10px",
         paddingBottom: "10px",
-        border: "none",
-        borderRadius: "5px",
-        color: "white",
+        color: "#01abd6",
         textDecoration: "none",
         cursor: "pointer",
         letterSpacing: "1px",
-        fontSize: "16px"
+        fontSize: "14px"
+    };
+
+    const overHandler =(e)=> {
+        e.target.style.backgroundColor = "#01abd6";
+        e.target.style.border = "1px solid #01abd6";
+        e.target.style.color = "white";
+    };
+
+    const outHandler =(e)=> {
+        e.target.style.backgroundColor = "transparent";
+        e.target.style.border = "1px solid #01abd6";
+        e.target.style.color = "#01abd6";
     };
 
     return (
         <>
-        <div style={aboutStyle}> 
-            <div style={{marginBottom: "35px"}} align="center">
-                <span style={{backgroundColor: "#e7f1fd", borderRadius: "20px", padding: "7px", paddingLeft: "25px", paddingRight: "25px", color: "#106eea", fontSize: "15px", textTransform: "uppercase", fontWeight: "700"}}>About</span>
-                <h2 style={{fontSize: "35px", fontWeight: "lighter", margin: "15px"}}>Find Out More<b style={{color: "#106eea", marginLeft: "10px"}}>About Us</b></h2>
-                <span style={{fontSize: "20px"}}>At IcePlanet our watchword is Quality.</span>
+        <div style={bannerStyle}>
+            <div style={innerBanner}>
+            <span style={{fontSize: "30px", fontWeight: "lighter"}}>About Us</span>
             </div>
-            <div style={mainContainer}>
-                <div style={subContainer1}>
-                    <img src={about} alt="About"/>
-                </div>
+        </div>
+        <div style={aboutStyle}>
+
                 <div style={subContainer2}>
                 <span style={{fontSize: "28px"}}>We take Online Orders and deliver to your doorstep</span>
                 <div style={{display: "flex", color: "#555555", paddingTop: "30px", paddingBottom: "30px"}}>
@@ -81,9 +94,11 @@ function AboutPage() {
                 <p style={{fontSize: "17px", color: "#555555"}}>
                    Additionally, we also specialize in Online Orders and Home Deliveries through our website and robust distribution
                    network, we also do wholesale supply and distribution for our corporate clients.</p>
-                <Link to="/contact"><button style={buttonStyle}>Contact Us</button></Link>
+                <div style={{marginTop: "50px"}} align="center">
+                   <Link to="/contact"><button onMouseOver={overHandler} onMouseOut={outHandler} style={buttonStyle}>CONTACT US</button></Link>
                 </div>
-            </div>
+                </div>
+      
         </div>
         </>
     )

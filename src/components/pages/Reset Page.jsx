@@ -9,13 +9,11 @@ function ResetPage() {
     };
 
     const container = {
-        width: "34%",
-        minWidth: "350px",
+        width: "70%",
+        minWidth: "320px",
         padding: "20px",
         paddingTop: "30px",
-        paddingBottom: "30px",
-        border: "solid 1px rgba(0,0,0,0.125)",
-        borderRadius: "0.25rem"
+        paddingBottom: "30px"
     };
 
     const inputDiv = {
@@ -25,8 +23,7 @@ function ResetPage() {
         border: "1px solid #ced4da",
         backgroundColor: "#e9ecef",
         maringTop: "10px",
-        marginBottom: "20px",
-        borderRadius: "0.25rem"
+        marginBottom: "20px"
     };
 
     const iconStyle = {
@@ -38,14 +35,24 @@ function ResetPage() {
     };
 
     const inputStyle = {
-        width: "88%",
+        width: "95%",
         padding: "10px",
         fontSize: "16px",
         letterSpacing: "1px",
         border: "none",
-        fontWeight: "lighter", 
-        borderTopRightRadius: "0.25rem",
-        borderBottomRightRadius: "0.25rem"
+        fontWeight: "lighter"
+    };
+
+    const overHandler =(e)=> {
+        e.target.style.backgroundColor = "#01abd6";
+        e.target.style.border = "1px solid #01abd6";
+        e.target.style.color = "white";
+    };
+
+    const outHandler =(e)=> {
+        e.target.style.backgroundColor = "transparent";
+        e.target.style.border = "1px solid #01abd6";
+        e.target.style.color = "#01abd6";
     };
 
     return (
@@ -59,9 +66,9 @@ function ResetPage() {
                     <div style={{borderBottom: "0.5px solid rgba(0,0,0,0.1)", marginBottom: "20px"}}></div>
                     <form>
                         <div style={inputDiv}>
-                            <img style={iconStyle} src={icon2}/><input style={inputStyle} placeholder="Email"/>
+                            <img style={iconStyle} src={icon2} alt="icon"/><input style={inputStyle} placeholder="Email"/>
                         </div>
-                        <input style={{width: "100%", backgroundColor: "#01abd6", borderRadius: "3px", paddingTop: "7px", paddingBottom: "7px", color: "white", fontSize: "17px", border: "none"}} type="submit" value="Reset Password"/>
+                        <input onMouseOver={overHandler} onMouseOut={outHandler} style={{width: "50%", minWidth: "200px", background: "none", paddingTop: "7px", paddingBottom: "7px", color: "#01abd6", fontSize: "14px", fontWeight: "bold", border: "1px solid #01abd6", cursor: "pointer", float: "left"}} type="submit" value="RESET PASSWORD"/>
                     </form>
                 </div>
         </div>
