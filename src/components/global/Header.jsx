@@ -76,8 +76,6 @@ function Header() {
 
     const icePlanet = {
         display: "flex",
-        alignContent: "center",
-        justifyContent: "center",
         background: "none",
         border: "none",
         color: "#f1f1f1",
@@ -91,8 +89,6 @@ function Header() {
 
     const menuStyle = {
         display: "flex",
-        alignContent: "center",
-        justifyContent: "center",
         background: "none",
         border: "none",
         color: "#f1f1f1",
@@ -181,11 +177,11 @@ function Header() {
             </div>
 
             {isBigScreen && 
-            <><div style={{display: "flex", position: "relative", paddingLeft: "42%"}}>
+            <><div style={{display: "flex", position: "relative", paddingLeft: "45%"}}>
                 <Link style={linkStyle} onMouseOver={overHandler} onMouseOut={outHandler} to="/">HOME</Link>
                 <Link style={linkStyle} onMouseOver={overHandler} onMouseOut={outHandler} to="/shop">SHOP</Link>
                 <Link style={cartLink} onMouseOver={overHandler} onMouseOut={outHandler} to="/cart">CART</Link>
-                <button style={icePlanet} onMouseOver={overHandler} onMouseOut={outHandler} onClick={handleDropdown}>ICE&nbsp;PLANET&nbsp;&#129171;</button>
+                <button style={icePlanet} onMouseOver={overHandler} onMouseOut={outHandler} onClick={handleDropdown}>ICE&nbsp;PLANET&nbsp;&#11167;</button>
                     {dropdown?<div align="center" style={dropdownStyle}>
                     <Link style={dropdownLink} onMouseOver={overHandlerDp} onMouseOut={outHandlerDp} to="/contact">CONTACT</Link>
                     <Link style={dropdownLink} onMouseOver={overHandlerDp} onMouseOut={outHandlerDp} to="/about">ABOUT US</Link>
@@ -200,7 +196,7 @@ function Header() {
 
             {isSmallScreen &&
             <><div style={{width: "80%"}}></div><div style={{display: "flex", position: "relative"}}>
-                <button style={menuStyle} onMouseOver={overHandler} onMouseOut={outHandler} onClick={menuDropdown}>MENU&nbsp;&#129171;</button>
+                <button style={menuStyle} onMouseOver={overHandler} onMouseOut={outHandler} onClick={menuDropdown}>MENU&nbsp;&#11167;</button>
                 {menu?<div align="center" style={dropdownStyle}>
                 <Link style={dropdownLink} onMouseOver={overHandlerDp} onMouseOut={outHandlerDp} to="/home">HOME</Link>
                 <Link style={dropdownLink} onMouseOver={overHandlerDp} onMouseOut={outHandlerDp} to="/shop">SHOP</Link>

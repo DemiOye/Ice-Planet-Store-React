@@ -47,8 +47,8 @@ function ContactPage() {
 
     const contactStyle = {
         padding: "70px",
-        paddingLeft: "5%",
-        paddingRight: "5%"
+        paddingLeft: "7%",
+        paddingRight: "7%"
     };
 
     const inputStyle = {
